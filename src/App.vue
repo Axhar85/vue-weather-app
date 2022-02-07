@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app"  :class="typeof weather.main != 'undefined' && weather.main.temp > 16 ? 'warm' : ''">
     <main>
       <div class="search-box">
         <input 
@@ -13,7 +13,7 @@
       <div class="weather-wrap" v-if=" typeof weather.main != 'undefined'"> 
       <div class="location-box">
           <div class="location"> {{weather.name}}, {{weather.sys.country}} </div>
-          <div class="date">28-01-2022</div>
+          <div class="date">{{dateBuilder(}}</div>
         </div>
 
         <div class="weather-box">
@@ -79,6 +79,10 @@ body {
   background-size: cover;
   background-position: bottom;
   transition: 0.4s;
+}
+
+#app.warm {
+  background-image: url('./assets/warm-bg.jpg');
 }
 
 main {
