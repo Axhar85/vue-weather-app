@@ -39,7 +39,7 @@ export default {
   methods: {
     fetchWeather (e){
       if(e.key == "Enter"){
-        fetch(`${this.api_base}weather?q=`)
+        fetch(`${this.url_base}weather?q=${this.query}&unit=metric&APPID=${this.aì_key}`)
       }
     }
   }
